@@ -19,4 +19,5 @@ const block1 = new Block({timestamp : '1/1/1' ,
                             data :'hello'
                         });
 const genesisBlock = Block.genesis();
+console.log(block1);
 console.log(genesisBlock);
