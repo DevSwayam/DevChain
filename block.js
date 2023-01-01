@@ -1,5 +1,6 @@
 
 import {GENESIS_BLOCK} from "./config.js"; // imported our genesis block 
+import {cryptoHash} from "./crypto-hash.js";
 
 class Block{
 
@@ -16,6 +17,16 @@ class Block{
         return new this(GENESIS_BLOCK); // whenever someone calls it will return this genesis block data
     }
 
+    static mineBlock({prevBlock,data}){ // will take inputs and mine block
+        const timestamp = Date.now(); // current date
+        const prevHash = prevBlock.hash; // take previous block hash as current block prevHash
+        return new Block({ // will call constructor of this class function and constructor will get all this arguments and block will be created
+            timestamp,
+            prevHash,
+            data,
+            hash : cryptoHash(timestamp,prevHash,data)
+        })
+    }
     
 }
 
@@ -26,6 +37,4 @@ const block1 = new Block({timestamp : '1/1/1' ,
                             data :'hello'
                         });
 
-const newGenesis = Block.genesis();
-console.log(block1);
-console.log(newGenesis);
+//
