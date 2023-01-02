@@ -1,15 +1,18 @@
 
 import {GENESIS_BLOCK} from "./config.js"; // imported our genesis block 
 import {cryptoHash} from "./crypto-hash.js";
+import {difficulty} from "./config.js";
 
 export class Block{
 
     // Every block need to be intialize with below values 
-    constructor({timestamp,prevHash,hash,data}){
+    constructor({timestamp,prevHash,hash,data,nonce,difficulty}){
         this.timestamp = timestamp;
         this.prevHash = prevHash;
         this.hash = hash;
         this.data = data;
+        this.nonce = nonce;
+        this.difficulty = difficulty;
     }
 
     // as genesis block is a static data and wont change hence we use static method
@@ -18,13 +21,22 @@ export class Block{
     }
 
     static mineBlock({prevBlock,data}){ // will take inputs and mine block
-        const timestamp = Date.now(); // current date
+        let hash,timestamp;
+        let nonce =0;
+        //const timestamp = Date.now(); // current date
         const prevHash = prevBlock.hash; // take previous block hash as current block prevHash
-        return new Block({ // will call constructor of this class function and constructor will get all this arguments and block will be created
+        do {
+            nonce++; // keep increasing nonce till you get hash of certain difficulty
+            timestamp=Date.now(); // constantlly updating timestamp of when block is going to get created
+            hash=cryptoHash(timestamp,prevHash,data,nonce,difficulty);
+        } while (hash.substring(0,difficulty) !== '0'.repeat(difficulty));// jab tak hash ke first two character 00 na ho jaye tab tak keep finding hash
+        return new Block({ // will call constructor of this class function and constructor will get all this arguments and block will be created  
             timestamp,
             prevHash,
             data,
-            hash : cryptoHash(timestamp,prevHash,data)
+            difficulty,
+            nonce,
+            hash,
         })
     }
     
