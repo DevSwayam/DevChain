@@ -2,7 +2,7 @@
 import {GENESIS_BLOCK} from "./config.js"; // imported our genesis block 
 import {cryptoHash} from "./crypto-hash.js";
 
-class Block{
+export class Block{
 
     // Every block need to be intialize with below values 
     constructor({timestamp,prevHash,hash,data}){
@@ -37,4 +37,6 @@ const block1 = new Block({timestamp : '1/1/1' ,
                             data :'hello'
                         });
 
-//
+/*
+const newGenesis = Block.genesis();
+console.log(newGenesis); */
