@@ -1,7 +1,7 @@
 
 import {GENESIS_BLOCK} from "./config.js"; // imported our genesis block 
 import {cryptoHash} from "./crypto-hash.js";
-import {difficulty} from "./config.js";
+
 
 export class Block{
 
@@ -23,6 +23,7 @@ export class Block{
     static mineBlock({prevBlock,data}){ // will take inputs and mine block
         let hash,timestamp;
         let nonce =0;
+        const {difficulty}=prevBlock;
         //const timestamp = Date.now(); // current date
         const prevHash = prevBlock.hash; // take previous block hash as current block prevHash
         do {
