@@ -1,7 +1,7 @@
 #Project DevChain
 
 Project Introduction: - 
-	We will be using JavaScript to code below blockchain structure.
+	We will be using JavaScript to code below blockchain structure and will use Expres JS for server side programming.
  
 In which each block will have below fields.
  
