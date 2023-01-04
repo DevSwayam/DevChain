@@ -29,7 +29,11 @@ export class Blockchain{
         for(let i = 1; i<chain.length;i++){
             const {timestamp,prevHash,hash,data,nonce,difficulty} =chain[i];
             const realLastHash = chain[i-1].hash;
+            const lastDifficulty = chain[i-1].difficulty;
             const validatedHash = cryptoHash(timestamp,prevHash,data,nonce,difficulty);
+            if(Math.abs(lastDifficulty-difficulty)> 1){
+              return false;
+            }
             if(prevHash !== realLastHash){
                 return false;
             }
