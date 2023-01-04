@@ -2,6 +2,7 @@ import {Blockchain} from './blockchain.js';
 const blockchain = new Blockchain();
 
 blockchain.addBlock({data :"new Data"});
+console.log(blockchain.chain[blockchain.chain.length-1]);
 let prevTimestamp,nextTimestamp,nextBlock,timeDiff,averageTime;
 
 const times = [];

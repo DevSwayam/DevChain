@@ -1,4 +1,4 @@
-
+import hexToBinary from "hex-to-binary";
 import {GENESIS_BLOCK, mining_rate} from "./config.js"; // imported our genesis block 
 import {cryptoHash} from "./crypto-hash.js";
 // just checking if branch is working or not
@@ -32,7 +32,7 @@ export class Block{
             timestamp=Date.now(); // constantlly updating timestamp of when block is going to get created
             difficulty = Block.adjustDifficulty({originalBlock : prevBlock,timestamp})
             hash=cryptoHash(timestamp,prevHash,data,nonce,difficulty);
-        } while (hash.substring(0,difficulty) !== '0'.repeat(difficulty));// jab tak hash ke first two character 00 na ho jaye tab tak keep finding hash
+        } while (hexToBinary(hash).substring(0,difficulty) !== '0'.repeat(difficulty));// jab tak hash ke first two character 00 na ho jaye tab tak keep finding hash
         return new Block({ // will call constructor of this class function and constructor will get all this arguments and block will be created  
             timestamp,
             prevHash,
