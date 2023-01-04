@@ -1,9 +1,7 @@
 
-<<<<<<< HEAD
 import {GENESIS_BLOCK, mining_rate} from "./config.js"; // imported our genesis block 
 import {cryptoHash} from "./crypto-hash.js";
 
-=======
 const hexToBinary = require("hex-to-binary");
 const { GENESIS_DATA, MINE_RATE } = require("./config");
 const cryptoHash = require("./crypto-hash");
@@ -23,7 +21,7 @@ class Block {
     let hash, timestamp;
     const prevHash = prevBlock.hash;
     let { difficulty } = prevBlock;
->>>>>>> 010c5c42f8de8799d98ab7a2cb9cc5a508397eea
+
 
     let nonce = 0;
     do {
@@ -47,7 +45,7 @@ class Block {
     });
   }
 
-<<<<<<< HEAD
+
     // Every block need to be intialize with below values 
     constructor({timestamp,prevHash,hash,data,nonce,difficulty}){
         this.timestamp = timestamp;
@@ -98,7 +96,7 @@ class Block {
         }
     }
     
-=======
+
   static adjustDifficulty({ originalBlock, timestamp }) {
     const { difficulty } = originalBlock;
     if (difficulty < 1) return 1;
@@ -106,7 +104,6 @@ class Block {
     if (difference > MINE_RATE) return difficulty - 1;
     return difficulty + 1;
   }
->>>>>>> 010c5c42f8de8799d98ab7a2cb9cc5a508397eea
 }
 
 const block1 = new Block({
