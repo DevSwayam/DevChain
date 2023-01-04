@@ -1,6 +1,7 @@
 
 import {GENESIS_BLOCK, mining_rate} from "./config.js"; // imported our genesis block 
 import {cryptoHash} from "./crypto-hash.js";
+// just checking if branch is working or not
 
 
 export class Block{
