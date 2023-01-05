@@ -15,9 +15,11 @@ export class Blockchain{
     replaceChain(chain){ // to select longest chain by miners to update
         if(chain.length<=this.chain.length){ // the chain which is miner sending should be greater than current chain
             console.error("Incoming chain has less proof of work"); // or throw error
+            return;
         }
         if(!blockchain.isValidChain(chain)){ // if the chain is big then check if it is actually legit 
             console.error("Incomin chain is not valid");
+            return;
         }
         this.chain = chain;
     }

@@ -1,9 +1,13 @@
 import express from 'express';
 import { Blockchain } from './blockchain.js';
 import bodyParser from 'body-parser';
+import { PubSub } from './publishsubscribe.js';
 
 const app = express();// to use expree on app
 const blockchain = new Blockchain();
+const pubsub = new PubSub({blockchain});
+
+ setTimeout(() => pubsub.broadcastChain(), 1000); 
 
 
 app.use(bodyParser.json());
