@@ -12,14 +12,17 @@ app.get('/api/blocks',(req,res)=>{ // whenever we {call /api/blocks} we want sys
     res.json(blockchain.chain); // what we want in response and as we get response in terms of json we convert it into json
 })
 
+
+
 //app.post for writing data 
-app.post("/app/mine", (req,res)=>{
+app.post('/api/mine', (req,res)=>{
     const {data} = req.body; //
+    
     blockchain.addBlock({data});
-    res.redirect("/api/blocks");
-})
+    res.redirect('/api/blocks');
+});
 
 const PORT = 3000;
 app.listen(PORT,()=>{
     console.log(`listening to PORT:${PORT}`);
-})
+});
