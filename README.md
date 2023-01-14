@@ -20,32 +20,58 @@ Console interface for interacting with the blockchain
 Display of current blockchain state
 Validation of transactions
 ### Getting Started
+
 Clone the repository
+
 Copy code
+```bash
 git clone https://github.com/DevSwayam/DevChain.git
+```
+
+
 Install the dependencies
-Copy code
+
 npm install
+
 Start the blockchain
-Copy code
+
+
 node main.js
+
 Interact with the blockchain through the console
+
 ### Example Use Case
+
 Start the blockchain by running node main.js
+
 The console will display the current state of the blockchain
+
 Add a new transaction by typing addTransaction in the console and following the prompts
+
 Mine a new block by typing mine in the console
+
 The console will display the updated state of the blockchain, including the newly mined block and the added transaction
+
 ### Note
+
 This project is for demonstration purposes only and is not intended for use in a production environment.
-Future Work
+
+### Future Work
+
 Implement advanced features such as smart contract, mining, and consensus algorithms
+
 Integrate the blockchain with real-world applications
+
 Explore other JavaScript libraries or frameworks to implement the blockchain
-Contributing
+
+### Contributing
+
 If you find any bug or have any suggestions, please feel free to open an issue or submit a pull request.
+
 License
 This project is licensed under the MIT License.
+
 Credits
+
 This project was created by DevSwayam to demonstrate the basic functionality of a blockchain using JavaScript and Node.js.
 
